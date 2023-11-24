@@ -1,6 +1,7 @@
 import { useLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
 import { Inter } from "next/font/google";
 import "@styles/globals.css";
 import { Header } from "@components/header/header";
@@ -30,6 +31,7 @@ const RootLayout = ({
       <body className={inter.className}>
         <Header />
         <section className="max-w-[1200px] mx-auto pt-8">{children}</section>
+        <Analytics />
       </body>
     </html>
   );
