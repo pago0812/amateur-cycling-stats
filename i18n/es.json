@@ -1,8 +1,10 @@
 {
-  "menu": {
-    "home": "Principal",
-    "races": "Carreras",
-    "ranking": "Clasificaciones",
-    "teams": "Equipos"
-  }
+  "home": "Principal",
+  "place": "Lugar",
+  "date": "Fecha",
+  "races": "Carreras",
+  "event": "Evento",
+  "events": "Eventos",
+  "ranking": "Clasificaciones",
+  "teams": "Equipos"
 }

@@ -9,16 +9,16 @@ const Header = () => {
       <h1 className="text-slate-50 text-2xl ">ACS</h1>
       <menu className="flex [&>li]:h-[56px]  text-slate-50 [&>li]:px-4  [&>li:hover]:bg-zinc-500  [&>li]:flex [&>li]:items-center ">
         <li>
-          <a href="/">{t("menu.home")}</a>
+          <a href="/">{t("home")}</a>
         </li>
         <li>
-          <a href="races">{t("menu.races")}</a>
+          <a href="events">{t("events")}</a>
         </li>
         <li>
-          <a href="teams">{t("menu.teams")}</a>
+          <a href="teams">{t("teams")}</a>
         </li>
         <li>
-          <a href="ranking">{t("menu.ranking")}</a>
+          <a href="ranking">{t("ranking")}</a>
         </li>
       </menu>
     </header>

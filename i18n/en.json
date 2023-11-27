@@ -1,8 +1,10 @@
 {
-  "menu": {
-    "home": "Home",
-    "races": "Races",
-    "ranking": "Ranking",
-    "teams": "Teams"
-  }
+  "home": "Home",
+  "place": "Place",
+  "date": "Date",
+  "races": "Races",
+  "event": "Event",
+  "events": "Events",
+  "ranking": "Ranking",
+  "teams": "Teams"
 }
