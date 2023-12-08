@@ -6,5 +6,10 @@
   "event": "Evento",
   "events": "Eventos",
   "ranking": "Clasificaciones",
-  "teams": "Equipos"
+  "teams": "Equipos",
+  "raceCategory": {
+    "label": "Categoria",
+    "M_18_30": "Varonil 18 -30",
+    "F_18_30": "Femenil 18 -30"
+  }
 }

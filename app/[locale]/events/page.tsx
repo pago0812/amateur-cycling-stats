@@ -2,11 +2,13 @@ import { EventsTable } from "@components/events-table/events-table";
 import { getEvents } from "@services/get-events";
 import { getTranslations } from "next-intl/server";
 
-const EventsPage = async ({
-  searchParams,
-}: {
-  searchParams?: { [key: string]: string | string[] | undefined };
-}) => {
+interface EventsPageProps {
+  searchParams: {
+    year: string | string[] | undefined;
+  };
+}
+
+const EventsPage = async ({ searchParams }: EventsPageProps) => {
   const t = await getTranslations();
   const events = await getEvents({ year: searchParams?.year });
 
@@ -19,17 +21,3 @@ const EventsPage = async ({
 };
 
 export default EventsPage;
-
-/*
-  useEffect(() => {
-    console.log("Use Effect");
-    fetch("/api/events", {
-      method: "POST",
-      body: JSON.stringify({
-        name: "La etapa CDMX",
-        year: 2023,
-        date: new Date(),
-        isPublicVisible: true,
-      }),
-    });
-  }, []);*/

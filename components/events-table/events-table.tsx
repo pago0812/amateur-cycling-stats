@@ -23,7 +23,11 @@ const EventsTable = async ({ events }: EventsTableProps) => {
           return (
             <tr key={i}>
               <td>{formatDateToMMDD(event.date)}</td>
-              <td>{event.name}</td>
+              <td>
+                <a className="hover:underline" href={`/events/${event._id}`}>
+                  {event.name}
+                </a>
+              </td>
               <td>{event.state}</td>
             </tr>
           );

@@ -2,14 +2,8 @@ import { connectToDB } from "@utils/database";
 import { Event, EventModel } from "@models/event";
 import { NextRequest, NextResponse } from "next/server";
 
-interface EventsGetParams {
-  params: {
-    year: number;
-  };
-}
-
 // Get all events
-const GET = async (req: NextRequest, { params }: EventsGetParams) => {
+const GET = async (req: NextRequest) => {
   const year = req.nextUrl.searchParams.get("year");
   try {
     await connectToDB();
@@ -24,8 +18,7 @@ const GET = async (req: NextRequest, { params }: EventsGetParams) => {
   }
 };
 
-// Add a new event
-
+// Create event
 const POST = async (req: NextRequest) => {
   try {
     await connectToDB();

@@ -12,13 +12,13 @@ const Header = () => {
           <a href="/">{t("home")}</a>
         </li>
         <li>
-          <a href="events">{t("events")}</a>
+          <a href="/events">{t("events")}</a>
         </li>
         <li>
-          <a href="teams">{t("teams")}</a>
+          <a href="/teams">{t("teams")}</a>
         </li>
         <li>
-          <a href="ranking">{t("ranking")}</a>
+          <a href="/ranking">{t("ranking")}</a>
         </li>
       </menu>
     </header>
