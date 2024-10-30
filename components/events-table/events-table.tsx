@@ -13,22 +13,25 @@ const EventsTable = async ({ events }: EventsTableProps) => {
     <table className="w-full text-left">
       <thead>
         <tr>
-          <th className="w-[15%]">{t("date")}</th>
-          <th className="w-[50%]">{t("event")}</th>
-          <th className="w-[35%]">{t("place")}</th>
+          <th>{t("date")}</th>
+          <th>{t("event")}</th>
+          <th className="hidden">{t("place")}</th>
         </tr>
       </thead>
       <tbody>
         {events?.map((event, i) => {
           return (
-            <tr key={i}>
-              <td>{formatDateToMMDD(event.date)}</td>
+            <tr className="[&>td:not(:last-child)]:pr-1" key={i}>
+              <td className="text-nowrap">{formatDateToMMDD(event.date)}</td>
               <td>
-                <a className="hover:underline" href={`/events/${event._id}`}>
+                <a
+                  className="hover:underline"
+                  href={`/events/${event.documentId}`}
+                >
                   {event.name}
                 </a>
               </td>
-              <td>{event.state}</td>
+              <td className="hidden">{event.state}</td>
             </tr>
           );
         })}

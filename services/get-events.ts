@@ -14,20 +14,16 @@ const validateYear = (paramYear: string | string[] | undefined) => {
 };
 
 const getEvents = async (params: GetEventsParams) => {
-  const eventResponse = await fetch(
-    `${process.env.BASE_URL}/api/events?${new URLSearchParams({
-      year: validateYear(params.year),
-    })}`,
-    {
-      next: { revalidate: 0 },
-    }
-  );
+  const eventResponse = await fetch(`${process.env.SERVICE_URL}/api/events`, {
+    next: { revalidate: 0 },
+  });
 
   if (!eventResponse.ok) {
     throw eventResponse.statusText;
   }
 
-  const events: Event[] = await eventResponse.json();
+  const events: Event[] = (await eventResponse.json()).data;
+
   return events;
 };
 

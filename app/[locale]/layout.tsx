@@ -28,9 +28,13 @@ const RootLayout = ({
 
   return (
     <html lang={locale}>
+      <meta
+        name="viewport"
+        content="user-scalable=no, width=device-width, initial-scale=1"
+      />
       <body className={inter.className}>
         <Header />
-        <section className="max-w-[1200px] mx-auto pt-8">{children}</section>
+        <section className="max-w-[1200px] mx-auto p-2">{children}</section>
         <Analytics />
       </body>
     </html>

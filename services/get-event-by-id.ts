@@ -6,7 +6,7 @@ interface GetEventByIdParams {
 
 const getEventById = async (params: GetEventByIdParams) => {
   const eventResponse = await fetch(
-    `${process.env.BASE_URL}/api/events/${params.id}`,
+    `${process.env.SERVICE_URL}/api/events/${params.id}`,
     {
       next: { revalidate: 0 },
     }
@@ -16,7 +16,7 @@ const getEventById = async (params: GetEventByIdParams) => {
     throw eventResponse.statusText;
   }
 
-  const event: Event = await eventResponse.json();
+  const event: Event = (await eventResponse.json()).data;
   return event;
 };
 

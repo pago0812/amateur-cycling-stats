@@ -1,31 +1,12 @@
-import mongoose, { Schema, Document, models } from "mongoose";
-
 export const RACE_MODEL_NAME: string = "Race";
 
 // Race Schema
-interface Race0 {
+export interface Race {
   name?: string;
   description?: string;
   raceCategory: RaceCategory;
   isPublicVisible: boolean;
 }
-
-// Race Schema
-export interface Race extends Race0 {
-  _id?: string;
-}
-
-interface IRace extends Race0, Document {}
-
-const RaceSchema: Schema = new Schema({
-  name: { type: String },
-  description: { type: String },
-  raceCategory: { type: String, required: true },
-  isPublicVisible: { type: Boolean, required: true },
-});
-
-export const RaceModel =
-  models.Race || mongoose.model<IRace>(RACE_MODEL_NAME, RaceSchema);
 
 export enum RaceCategory {
   F = "F",
