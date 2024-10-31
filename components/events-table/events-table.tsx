@@ -22,7 +22,9 @@ const EventsTable = async ({ events }: EventsTableProps) => {
         {events?.map((event, i) => {
           return (
             <tr className="[&>td:not(:last-child)]:pr-1" key={i}>
-              <td className="text-nowrap">{formatDateToMMDD(event.date)}</td>
+              <td className="text-nowrap">
+                {formatDateToMMDD(event.dateTime)}
+              </td>
               <td>
                 <a
                   className="hover:underline"

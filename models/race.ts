@@ -8,7 +8,11 @@ export interface Race {
   isPublicVisible: boolean;
 }
 
-export enum RaceCategory {
+export interface RaceCategory {
+  name: RaceCategoryEnum
+}
+
+export enum RaceCategoryEnum {
   F = "F",
   F_JUNIOR = "F_JUNIOR",
   F_YOUTH_A = "F_YOUTH_A",

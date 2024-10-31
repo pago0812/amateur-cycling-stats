@@ -9,10 +9,10 @@ interface EventDetailPage {
 const EventDetailPage = async ({ params }: EventDetailPage) => {
   const t = await getTranslations();
   const event = await getEventById({ id: params?.id });
-
+  console.log(event);
   const raceCategoryOptions = event.races?.map((race) => {
     return {
-      t: t(`raceCategory.${race.raceCategory}`),
+      t: race?.raceCategory?.name,
       value: race.raceCategory,
     };
   });

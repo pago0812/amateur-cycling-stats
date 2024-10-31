@@ -8,7 +8,7 @@ export interface Event {
   documentId: string;
   name: string;
   description?: string;
-  date: Date;
+  dateTime: Date;
   year: number;
   country: string;
   state: string;
