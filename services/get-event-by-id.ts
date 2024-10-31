@@ -30,7 +30,6 @@ const getEventById = async (params: GetEventByIdParams) => {
     const event: Event = (await eventResponse.json()).data;
     return event;
   } catch (e) {
-    console.log(e);
     throw e;
   }
 };
