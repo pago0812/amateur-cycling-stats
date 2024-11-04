@@ -5,9 +5,9 @@ const Header = () => {
   const t = useTranslations();
 
   return (
-    <header className="full-w flex flex-row bg-zinc-700 px-3 h-[56px] justify-between items-center">
-      <h1 className="text-slate-50 text-2xl ">ACS</h1>
-      <menu className="hidden md:flex [&>li]:h-[56px]  text-slate-50 [&>li]:px-4  [&>li:hover]:bg-zinc-500  [&>li]:flex [&>li]:items-center ">
+    <header className="full-w flex h-[56px] flex-row items-center justify-between bg-zinc-700 px-3">
+      <h1 className="text-2xl text-slate-50">ACS</h1>
+      <menu className="hidden text-slate-50 md:flex [&>li:hover]:bg-zinc-500 [&>li]:flex [&>li]:h-[56px] [&>li]:items-center [&>li]:px-4">
         <li>
           <a href="/">{t("home")}</a>
         </li>

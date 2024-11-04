@@ -10,7 +10,7 @@ interface AcsSelect {
 const SelectQueryParam = ({ title, name, options }: AcsSelect) => {
   const [queryValue, setQueryValue] = useQueryState<any>(
     name,
-    options?.[0]?.value
+    options?.[0]?.value,
   );
   return (
     <div>

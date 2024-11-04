@@ -6,7 +6,7 @@ interface GetEventsParams {
 
 const validateYear = (paramYear: string | string[] | undefined) => {
   const tmpYear = parseInt(
-    paramYear ? (Array.isArray(paramYear) ? paramYear[0] : paramYear) : ""
+    paramYear ? (Array.isArray(paramYear) ? paramYear[0] : paramYear) : "",
   );
   return isNaN(tmpYear)
     ? new Date().getFullYear().toString()

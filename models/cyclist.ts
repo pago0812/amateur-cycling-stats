@@ -13,7 +13,6 @@ export interface Cyclist extends Cyclist0 {
   _id?: string;
 }
 
-
 enum CyclistGender {
   F = "F",
   M = "M",

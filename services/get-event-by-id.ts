@@ -21,7 +21,7 @@ const getEventById = async (params: GetEventByIdParams) => {
       `${process.env.SERVICE_URL}/api/events/${params.id}?${queryString}`,
       {
         next: { revalidate: 0 },
-      }
+      },
     );
     if (!eventResponse.ok) {
       throw eventResponse.statusText;

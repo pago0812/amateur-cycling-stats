@@ -9,7 +9,7 @@ export interface Race {
 }
 
 export interface RaceCategory {
-  name: RaceCategoryEnum
+  name: RaceCategoryEnum;
 }
 
 export enum RaceCategoryEnum {

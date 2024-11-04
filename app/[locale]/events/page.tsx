@@ -12,7 +12,7 @@ interface EventsPageProps {
 const EventsPage = async ({ searchParams }: EventsPageProps) => {
   const t = await getTranslations();
   const events = await getEvents({ year: searchParams?.year });
-  
+
   return (
     <section className="">
       <h2 className="text-2xl">{t("events")}</h2>
