@@ -1,11 +1,17 @@
 import { useLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "@styles/globals.css";
-import { Header } from "@components/header/header";
 
-const inter = Inter({ subsets: ["latin"] });
+import { Header } from "@components/header/header";
+import { Box, CssBaseline } from "@mui/material";
+
+// FONTS 
+import "@styles/globals.css";
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+
 
 export const metadata: Metadata = {
   title: "Amateur Cycling Stats",
@@ -31,11 +37,12 @@ const RootLayout = ({
         name="viewport"
         content="user-scalable=no, width=device-width, initial-scale=1"
       />
-      <body className={inter.className}>
+      <body>
+        <CssBaseline />
         <Header />
-        <section className="mx-auto max-w-[1200px] p-2">{children}</section>
+        <Box component='section' sx={{ padding: '16px' }}>{children}</Box>
       </body>
-    </html>
+    </html >
   );
 };
 

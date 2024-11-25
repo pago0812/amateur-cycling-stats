@@ -1,20 +1,42 @@
 import { Event } from "@models/event";
+import { dateStartOfYear, dateEndOfYear } from "@utils/dates";
+import qs from "qs";
 
 interface GetEventsParams {
-  year?: string | string[];
+  year?: string;
 }
 
-const validateYear = (paramYear: string | string[] | undefined) => {
-  const tmpYear = parseInt(
-    paramYear ? (Array.isArray(paramYear) ? paramYear[0] : paramYear) : "",
-  );
-  return isNaN(tmpYear)
-    ? new Date().getFullYear().toString()
-    : tmpYear.toString();
-};
 
 const getEvents = async (params: GetEventsParams) => {
-  const eventResponse = await fetch(`${process.env.SERVICE_URL}/api/events`, {
+
+
+  const startOfYear = dateStartOfYear(!isNaN(Number(params.year)) ? Number(params.year) : undefined)
+  const endOfYear = dateEndOfYear(!isNaN(Number(params.year)) ? Number(params.year) : undefined)
+
+  console.log(startOfYear)
+  console.log(endOfYear)
+
+  const query = {
+    sort: 'dateTime:desc',
+    filters: {
+      $and: [
+        {
+          dateTime: {
+            $gte: startOfYear,
+          },
+        },
+        {
+          dateTime: {
+            $lte: endOfYear,
+          },
+        },
+      ],
+    }
+  };
+
+  const queryString = qs.stringify(query);
+
+  const eventResponse = await fetch(`${process.env.SERVICE_URL}/api/events?${queryString}`, {
     next: { revalidate: 0 },
   });
 

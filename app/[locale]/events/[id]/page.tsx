@@ -1,4 +1,5 @@
 import { SelectQueryParam } from "@components/select-query-param/select-query-param";
+import { Typography } from "@mui/material";
 import { getEventById } from "@services/get-event-by-id";
 import { getTranslations } from "next-intl/server";
 
@@ -13,13 +14,13 @@ const EventDetailPage = async ({ params }: EventDetailPage) => {
   const raceCategoryOptions = event.races?.map((race) => {
     return {
       t: race?.raceCategory?.name,
-      value: race.raceCategory,
+      value: race.raceCategory as unknown as string,
     };
   });
 
   return (
-    <section className="mx-8">
-      <h2 className="text-2xl">{event.name}</h2>
+    <section >
+      <Typography component='h2'>{event.name}</Typography>
       <SelectQueryParam
         name="race-category"
         title={t("raceCategory.label")}

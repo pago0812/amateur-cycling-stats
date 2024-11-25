@@ -1,3 +1,6 @@
+import { Box, Button, Link } from "@mui/material";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
 import { useTranslations } from "next-intl";
 import React from "react";
 
@@ -5,23 +8,17 @@ const Header = () => {
   const t = useTranslations();
 
   return (
-    <header className="full-w flex h-[56px] flex-row items-center justify-between bg-zinc-700 px-3">
-      <h1 className="text-2xl text-slate-50">ACS</h1>
-      <menu className="hidden text-slate-50 md:flex [&>li:hover]:bg-zinc-500 [&>li]:flex [&>li]:h-[56px] [&>li]:items-center [&>li]:px-4">
-        <li>
-          <a href="/">{t("home")}</a>
-        </li>
-        <li>
-          <a href="/events">{t("events")}</a>
-        </li>
-        <li>
-          <a href="/teams">{t("teams")}</a>
-        </li>
-        <li>
-          <a href="/ranking">{t("ranking")}</a>
-        </li>
-      </menu>
-    </header>
+    <AppBar position="static" component='nav' >
+      <Toolbar sx={{ justifyContent: 'space-between' }}>
+        <h1>ACS</h1>
+        <Box component='nav' sx={{ display: 'flex', gap: '16px' }}>
+          <Link href='/' underline="none" color="white">{t("home")}</Link>
+          <Link href='/events' underline="none" color="white">{t("events")}</Link>
+          <Link href='/teams' underline="none" color="white">{t("teams")}</Link>
+          <Link href='/ranking' underline="none" color="white">{t("ranking")}</Link>
+        </Box>
+      </Toolbar>
+    </AppBar>
   );
 };
 
