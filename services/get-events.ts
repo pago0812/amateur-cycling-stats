@@ -1,5 +1,4 @@
 import { Event } from "@models/event";
-import { dateStartOfYear, dateEndOfYear } from "@utils/dates";
 import qs from "qs";
 
 interface GetEventsParams {
@@ -8,29 +7,14 @@ interface GetEventsParams {
 
 
 const getEvents = async (params: GetEventsParams) => {
-
-
-  const startOfYear = dateStartOfYear(!isNaN(Number(params.year)) ? Number(params.year) : undefined)
-  const endOfYear = dateEndOfYear(!isNaN(Number(params.year)) ? Number(params.year) : undefined)
-
-  console.log(startOfYear)
-  console.log(endOfYear)
+  const queryYear = !isNaN(Number(params.year)) ? Number(params.year) : (new Date()).getFullYear()
 
   const query = {
     sort: 'dateTime:desc',
     filters: {
-      $and: [
-        {
-          dateTime: {
-            $gte: startOfYear,
-          },
-        },
-        {
-          dateTime: {
-            $lte: endOfYear,
-          },
-        },
-      ],
+      year: {
+        $eq: queryYear,
+      }
     }
   };
 

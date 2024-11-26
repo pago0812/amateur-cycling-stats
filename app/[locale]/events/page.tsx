@@ -11,9 +11,6 @@ interface EventsPageProps {
 }
 
 const EventsPage = async ({ searchParams }: EventsPageProps) => {
-
-  console.log(searchParams.year)
-
   const t = await getTranslations();
   const events = await getEvents({ year: searchParams?.year });
 

@@ -7,7 +7,7 @@ interface EventsTableProps {
   events: Event[];
 }
 
-const EventsTable = async ({ events }: EventsTableProps) => {
+const EventsTable = ({ events }: EventsTableProps) => {
   const t = useTranslations();
 
   return <TableContainer component={Paper}>
