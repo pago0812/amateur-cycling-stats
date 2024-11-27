@@ -1,4 +1,4 @@
-import { endOfYear, format, startOfYear } from "date-fns";
+import { endOfYear, format, startOfYear, intervalToDuration } from "date-fns";
 import { es } from "date-fns/locale";
 
 const formatDateToMMDD = (date: Date) => {
@@ -9,18 +9,17 @@ const formatDateToMMDD = (date: Date) => {
 };
 
 const dateStartOfYear = (year?: number) => {
-  const date = year ? new Date(year, 1, 1) : new Date()
+  const date = year ? new Date(year, 1, 1) : new Date();
   const dateFormat = format(startOfYear(date), "yyyy-MM-dd", { locale: es });
 
-  return dateFormat
-}
-
+  return dateFormat;
+};
 
 const dateEndOfYear = (year?: number) => {
-  const date = year ? new Date(year, 1, 1) : new Date()
+  const date = year ? new Date(year, 1, 1) : new Date();
   const dateFormat = format(endOfYear(date), "yyyy-MM-dd", { locale: es });
 
-  return dateFormat
-}
+  return dateFormat;
+};
 
 export { formatDateToMMDD, dateStartOfYear, dateEndOfYear };

@@ -1,8 +1,8 @@
-import { EventsTable } from "@components/events-table/events-table";
-import { SelectQueryParam } from "@components/select-query-param/select-query-param";
-import { Box, Typography } from "@mui/material";
-import { getEvents } from "@services/get-events";
 import { getTranslations } from "next-intl/server";
+import { Box, Typography } from "@mui/material";
+import { EventsTable } from "@components/events/events-table/events-table";
+import { SelectQueryParam } from "@components/common/select-query-param/select-query-param";
+import { getEvents } from "@services/events";
 
 interface EventsPageProps {
   searchParams: {
@@ -15,8 +15,8 @@ const EventsPage = async ({ searchParams }: EventsPageProps) => {
   const events = await getEvents({ year: searchParams?.year });
 
   return (
-    <section className="">
-      <Typography sx={{ mb: '32px' }} component='h1' variant="h5">{t("events")}</Typography>
+    <Box component='section'>
+      <Typography sx={{ mb: '32px' }} component='h2' variant="h5">{t("events")}</Typography>
       <Box sx={{ mb: '16px' }}>
         <SelectQueryParam
           title={t("year")}
@@ -31,7 +31,7 @@ const EventsPage = async ({ searchParams }: EventsPageProps) => {
         />
       </Box>
       <EventsTable events={events} />
-    </section>
+    </Box>
   );
 };
 

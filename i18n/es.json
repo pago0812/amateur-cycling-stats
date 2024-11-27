@@ -1,11 +1,14 @@
 {
-  "home": "Principal",
-  "place": "Lugar",
   "date": "Fecha",
-  "races": "Carreras",
   "event": "Evento",
   "events": "Eventos",
+  "lastName":"Apellido",
+  "name": "Nombre",
+  "home": "Principal",
+  "place": "Lugar",
+  "races": "Carreras",
   "ranking": "Clasificaciones",
+  "time": "Tiempo",
   "teams": "Equipos",
   "year": "Año",
   "raceCategory": {

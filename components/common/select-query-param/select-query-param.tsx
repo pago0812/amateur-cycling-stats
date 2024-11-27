@@ -1,6 +1,6 @@
 "use client";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-import { useQueryState } from "next-usequerystate";
+import { useQueryState, parseAsString } from "nuqs";
 
 interface AcsSelect {
   name: string;
@@ -9,9 +9,12 @@ interface AcsSelect {
 }
 
 const SelectQueryParam = ({ title, name, options }: AcsSelect) => {
-  const [queryValue, setQueryValue] = useQueryState(name, {
-    shallow: false,
-  });
+  const [queryValue, setQueryValue] = useQueryState(
+    name,
+    parseAsString.withDefault(options?.[0]?.value || "").withOptions({
+      shallow: false,
+    }),
+  );
 
   return (
     <FormControl size="small">
@@ -26,12 +29,12 @@ const SelectQueryParam = ({ title, name, options }: AcsSelect) => {
         }}
       >
         {options?.map((option: any, i: number) => (
-          <MenuItem key={i} value={option.value}>{option.t}</MenuItem>
+          <MenuItem key={i} value={option.value}>
+            {option.t}
+          </MenuItem>
         ))}
       </Select>
     </FormControl>
-
-
   );
 };
 
