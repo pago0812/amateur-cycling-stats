@@ -26,7 +26,6 @@ const ResultsTable = ({ raceResults }: EventsTableProps) => {
           <TableRow>
             <TableCell>{t("place")}</TableCell>
             <TableCell>{t("name")}</TableCell>
-            <TableCell>{t("lastName")}</TableCell>
             <TableCell>{t("time")}</TableCell>
             <TableCell>{t("points")}</TableCell>
           </TableRow>
@@ -38,10 +37,13 @@ const ResultsTable = ({ raceResults }: EventsTableProps) => {
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell component="th">{result.place}</TableCell>
-              <TableCell component="th">{result.cyclist.name}</TableCell>
-              <TableCell component="th">{result.cyclist.lastName}</TableCell>
+              <TableCell component="th">
+                {result.cyclist.lastName} {result.cyclist.name}
+              </TableCell>
               <TableCell component="th">{result.time}</TableCell>
-              <TableCell component="th">{result.rankingPoint.points}</TableCell>
+              <TableCell component="th">
+                {result.rankingPoint?.points}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
