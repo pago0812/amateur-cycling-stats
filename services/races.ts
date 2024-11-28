@@ -10,7 +10,7 @@ export const getRaceById = async (params: GetRaceByIdParams) => {
     populate: {
       raceResults: {
         sort: "place",
-        populate: "cyclist",
+        populate: ["cyclist", "rankingPoint"],
       },
     },
   };

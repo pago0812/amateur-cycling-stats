@@ -21,13 +21,14 @@ const ResultsTable = ({ raceResults }: EventsTableProps) => {
 
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <Table size="small">
         <TableHead>
           <TableRow>
             <TableCell>{t("place")}</TableCell>
             <TableCell>{t("name")}</TableCell>
             <TableCell>{t("lastName")}</TableCell>
             <TableCell>{t("time")}</TableCell>
+            <TableCell>{t("points")}</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -40,6 +41,7 @@ const ResultsTable = ({ raceResults }: EventsTableProps) => {
               <TableCell component="th">{result.cyclist.name}</TableCell>
               <TableCell component="th">{result.cyclist.lastName}</TableCell>
               <TableCell component="th">{result.time}</TableCell>
+              <TableCell component="th">{result.rankingPoint.points}</TableCell>
             </TableRow>
           ))}
         </TableBody>
