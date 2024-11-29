@@ -1,42 +1,77 @@
+import { Box, Typography } from "@mui/material";
+import { getTranslations } from "next-intl/server";
 import { SelectQueryParam } from "@components/common/select-query-param/select-query-param";
 import { ResultsTable } from "@components/events/results-table/results-table";
-import { Box, Typography } from "@mui/material";
-import { getEventById } from "@services/events";
-import { getRaceById } from "@services/races";
-import { getTranslations } from "next-intl/server";
+import { getEventWithCategoriesById } from "@services/events";
+import { getRaceWithResultsWithFilters } from "@services/races";
 
 interface EventDetailPage {
   params: { id: string };
   searchParams: {
-    race: string;
+    category: string;
+    gender: string;
+    length: string;
   };
 }
 
 const EventDetailPage = async ({ params, searchParams }: EventDetailPage) => {
   const t = await getTranslations();
-  const event = await getEventById({ id: params?.id });
+  const event = await getEventWithCategoriesById({ id: params?.id });
 
-  const race = await getRaceById({
-    id: searchParams?.race || event?.races?.[0].documentId || "",
+  const race = await getRaceWithResultsWithFilters({
+    age:
+      searchParams?.category ||
+      event?.supportedRaceCategories?.[0].documentId ||
+      "",
+    length:
+      searchParams?.gender ||
+      event?.supportedRaceCategoryLengths?.[0].documentId ||
+      "",
+    gender:
+      searchParams?.length ||
+      event?.supportedRaceCategoryGenders?.[0].documentId ||
+      "",
   });
 
-  const raceCategoryOptions = event.races?.map((race) => {
-    return {
-      t: race?.raceCategory?.name,
-      value: race.documentId as unknown as string,
-    };
-  });
+  const raceCategoryAgeOptions = event.supportedRaceCategories?.map(
+    (category) => ({
+      t: t(`raceCategory.${category?.name}`),
+      value: category.documentId,
+    }),
+  );
+  const raceCategoryLengthOptions = event.supportedRaceCategoryLengths?.map(
+    (category) => ({
+      t: t(`raceCategoryLength.${category?.name}`),
+      value: category.documentId,
+    }),
+  );
+  const raceCategoryGenderOptions = event.supportedRaceCategoryGenders?.map(
+    (category) => ({
+      t: t(`raceCategoryGender.${category?.name}`),
+      value: category.documentId,
+    }),
+  );
 
   return (
     <Box component="section">
       <Typography sx={{ mb: "32px" }} component="h2" variant="h5">
         {event.name}
       </Typography>
-      <Box sx={{ mb: "16px" }}>
+      <Box sx={{ mb: "16px", display: "flex", gap: "12px" }}>
         <SelectQueryParam
-          name="race"
-          title={t("raceCategory.label")}
-          options={raceCategoryOptions}
+          name="category"
+          title={t(`raceCategory.label`)}
+          options={raceCategoryAgeOptions}
+        />
+        <SelectQueryParam
+          name="gender"
+          title={t(`raceCategoryGender.label`)}
+          options={raceCategoryGenderOptions}
+        />
+        <SelectQueryParam
+          name="length"
+          title={t(`raceCategoryLength.label`)}
+          options={raceCategoryLengthOptions}
         />
       </Box>
       <ResultsTable raceResults={race.raceResults}></ResultsTable>

@@ -17,7 +17,7 @@ const SelectQueryParam = ({ title, name, options }: AcsSelect) => {
   );
 
   return (
-    <FormControl size="small">
+    <FormControl sx={{ minWidth: "120px" }} size="small">
       <InputLabel id="select-query-params-input">{title}</InputLabel>
       <Select
         labelId="select-query-params-input"

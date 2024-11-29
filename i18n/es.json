@@ -2,7 +2,7 @@
   "date": "Fecha",
   "event": "Evento",
   "events": "Eventos",
-  "lastName":"Apellido",
+  "lastName": "Apellido",
   "name": "Nombre",
   "home": "Principal",
   "place": "Lugar",
@@ -14,7 +14,44 @@
   "year": "Año",
   "raceCategory": {
     "label": "Categoria",
-    "M_18_30": "Varonil 18 -30",
-    "F_18_30": "Femenil 18 -30"
+    "ABS": "General",
+    "ELITE": "Elite",
+    "ES_19_23": "Sub 23",
+    "JA_13_14": "Juvenil A (13 - 14)",
+    "JA_15_16": "Juvenil B (15 - 16)",
+    "JA_17_18": "Juvenil A (17 - 18)",
+    "MA": "Master A",
+    "MB": "Master B",
+    "MC": "Master C",
+    "MD": "Master D",
+    "ME": "Master E",
+    "R_18_29": "18 - 29",
+    "R_18_34": "18 - 34",
+    "R_18_39": "18 - 39",
+    "R_30_34": "30 - 34",
+    "R_30_39": "30 - 39",
+    "R_35_39": "35 - 39",
+    "R_40_44": "40 - 44",
+    "R_40_49": "40 - 49",
+    "R_45_49": "45 - 49",
+    "R_50_54": "50 - 54",
+    "R_50_59": "50 - 59",
+    "R_55_59": "55 - 59",
+    "R_60_64": "60 - 64",
+    "R_60_69": "60 - 69",
+    "R_65_69": "65 - 69"
+  },
+  "raceCategoryGender": {
+    "label": "Genero",
+    "FEMALE": "Femenil",
+    "MALE": "Varonil",
+    "OPEN": "Abierta"
+  },
+  "raceCategoryLength": {
+    "label": "Distancia",
+    "LONG": "Larga",
+    "SHORT": "Corta",
+    "SPRINT": "Sprint",
+    "UNIQUE": "Unica"
   }
 }

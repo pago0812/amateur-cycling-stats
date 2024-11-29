@@ -5,24 +5,28 @@ interface GetEventsParams {
   year?: string;
 }
 
-
-const getEvents = async (params: GetEventsParams) => {
-  const queryYear = !isNaN(Number(params.year)) ? Number(params.year) : (new Date()).getFullYear()
+const getEventsByYear = async (params: GetEventsParams) => {
+  const queryYear = !isNaN(Number(params.year))
+    ? Number(params.year)
+    : new Date().getFullYear();
 
   const query = {
-    sort: 'dateTime:desc',
+    sort: "dateTime:desc",
     filters: {
       year: {
         $eq: queryYear,
-      }
-    }
+      },
+    },
   };
 
   const queryString = qs.stringify(query);
 
-  const eventResponse = await fetch(`${process.env.SERVICE_URL}/api/events?${queryString}`, {
-    next: { revalidate: 0 },
-  });
+  const eventResponse = await fetch(
+    `${process.env.SERVICE_URL}/api/events?${queryString}`,
+    {
+      next: { revalidate: 600 },
+    },
+  );
 
   if (!eventResponse.ok) {
     throw eventResponse.statusText;
@@ -33,18 +37,17 @@ const getEvents = async (params: GetEventsParams) => {
   return events;
 };
 
-
 interface GetEventByIdParams {
   id: string;
 }
 
-const getEventById = async (params: GetEventByIdParams) => {
+const getEventWithCategoriesById = async (params: GetEventByIdParams) => {
   const query = {
-    populate: {
-      races: {
-        populate: "raceCategory",
-      },
-    },
+    populate: [
+      "supportedRaceCategories",
+      "supportedRaceCategoryGenders",
+      "supportedRaceCategoryLengths",
+    ],
   };
 
   const queryString = qs.stringify(query);
@@ -53,7 +56,7 @@ const getEventById = async (params: GetEventByIdParams) => {
     const eventResponse = await fetch(
       `${process.env.SERVICE_URL}/api/events/${params.id}?${queryString}`,
       {
-        next: { revalidate: 0 },
+        next: { revalidate: 600 },
       },
     );
     if (!eventResponse.ok) {
@@ -67,5 +70,4 @@ const getEventById = async (params: GetEventByIdParams) => {
   }
 };
 
-
-export { getEvents, getEventById };
+export { getEventsByYear, getEventWithCategoriesById };

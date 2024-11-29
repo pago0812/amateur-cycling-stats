@@ -1,8 +1,8 @@
-import { getTranslations } from "next-intl/server";
 import { Box, Typography } from "@mui/material";
+import { getTranslations } from "next-intl/server";
 import { EventsTable } from "@components/events/events-table/events-table";
 import { SelectQueryParam } from "@components/common/select-query-param/select-query-param";
-import { getEvents } from "@services/events";
+import { getEventsByYear } from "@services/events";
 
 interface EventsPageProps {
   searchParams: {
@@ -12,12 +12,14 @@ interface EventsPageProps {
 
 const EventsPage = async ({ searchParams }: EventsPageProps) => {
   const t = await getTranslations();
-  const events = await getEvents({ year: searchParams?.year });
+  const events = await getEventsByYear({ year: searchParams?.year });
 
   return (
-    <Box component='section'>
-      <Typography sx={{ mb: '32px' }} component='h2' variant="h5">{t("events")}</Typography>
-      <Box sx={{ mb: '16px' }}>
+    <Box component="section">
+      <Typography sx={{ mb: "32px" }} component="h2" variant="h5">
+        {t("events")}
+      </Typography>
+      <Box sx={{ mb: "16px", display: "flex", gap: "16px" }}>
         <SelectQueryParam
           title={t("year")}
           name="year"

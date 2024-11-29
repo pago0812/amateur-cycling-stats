@@ -1,3 +1,6 @@
+import { RaceCategory } from "./race-category";
+import { RaceCategoryGender } from "./race-category-gender";
+import { RaceCategoryLength } from "./race-category-length";
 import { Race } from "./race";
 
 const EVENT_MODEL_NAME: string = "Event";
@@ -14,5 +17,8 @@ export interface Event {
   state: string;
   city?: string;
   isPublicVisible: boolean;
-  races?: Race[];
+  races: Race[];
+  supportedRaceCategories: RaceCategory[];
+  supportedRaceCategoryGenders: RaceCategoryGender[];
+  supportedRaceCategoryLengths: RaceCategoryLength[];
 }

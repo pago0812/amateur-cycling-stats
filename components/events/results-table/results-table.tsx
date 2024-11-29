@@ -1,7 +1,5 @@
-import { Event } from "@models/event";
 import { RaceResult } from "@models/race-result";
 import {
-  Link,
   Paper,
   Table,
   TableBody,

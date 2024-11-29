@@ -1,12 +1,21 @@
 import { Race } from "@models/race";
 import qs from "qs";
 
-interface GetRaceByIdParams {
-  id: string;
+interface GetRaceWithFiltersParams {
+  age: string;
+  length: string;
+  gender: string;
 }
 
-export const getRaceById = async (params: GetRaceByIdParams) => {
+export const getRaceWithResultsWithFilters = async (
+  params: GetRaceWithFiltersParams,
+) => {
   const query = {
+    filters: {
+      raceCategory: {
+        documentId: params.age,
+      },
+    },
     populate: {
       raceResults: {
         sort: "place",
@@ -19,17 +28,17 @@ export const getRaceById = async (params: GetRaceByIdParams) => {
 
   try {
     const raceResponse = await fetch(
-      `${process.env.SERVICE_URL}/api/races/${params.id}?${queryString}`,
+      `${process.env.SERVICE_URL}/api/races?${queryString}`,
       {
-        next: { revalidate: 0 },
+        next: { revalidate: 600 },
       },
     );
     if (!raceResponse.ok) {
       throw raceResponse.statusText;
     }
 
-    const race: Race = (await raceResponse.json()).data;
-    return race;
+    const races: Race[] = (await raceResponse.json()).data;
+    return races[0];
   } catch (e) {
     throw e;
   }
