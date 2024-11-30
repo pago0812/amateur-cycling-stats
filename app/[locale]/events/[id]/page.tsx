@@ -24,11 +24,11 @@ const EventDetailPage = async ({ params, searchParams }: EventDetailPage) => {
       event?.supportedRaceCategories?.[0].documentId ||
       "",
     length:
-      searchParams?.gender ||
+      searchParams?.length ||
       event?.supportedRaceCategoryLengths?.[0].documentId ||
       "",
     gender:
-      searchParams?.length ||
+      searchParams?.gender ||
       event?.supportedRaceCategoryGenders?.[0].documentId ||
       "",
   });
@@ -74,7 +74,7 @@ const EventDetailPage = async ({ params, searchParams }: EventDetailPage) => {
           options={raceCategoryLengthOptions}
         />
       </Box>
-      <ResultsTable raceResults={race.raceResults}></ResultsTable>
+      <ResultsTable raceResults={race?.raceResults || []}></ResultsTable>
     </Box>
   );
 };

@@ -1,5 +1,6 @@
 import { RaceResult } from "@models/race-result";
 import {
+  Link,
   Paper,
   Table,
   TableBody,
@@ -10,11 +11,11 @@ import {
 } from "@mui/material";
 import { useTranslations } from "next-intl";
 
-interface EventsTableProps {
+interface ResultsTableProps {
   raceResults: RaceResult[];
 }
 
-const ResultsTable = ({ raceResults }: EventsTableProps) => {
+const ResultsTable = ({ raceResults }: ResultsTableProps) => {
   const t = useTranslations();
 
   return (
@@ -36,7 +37,13 @@ const ResultsTable = ({ raceResults }: EventsTableProps) => {
             >
               <TableCell component="th">{result.place}</TableCell>
               <TableCell component="th">
-                {result.cyclist.lastName} {result.cyclist.name}
+                <Link
+                  underline="none"
+                  color="black"
+                  href={`/cyclists/${result.cyclist.documentId}`}
+                >
+                  {result.cyclist.lastName} {result.cyclist.name}
+                </Link>
               </TableCell>
               <TableCell component="th">{result.time}</TableCell>
               <TableCell component="th">

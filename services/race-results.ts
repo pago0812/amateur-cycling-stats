@@ -24,7 +24,7 @@ export const getRaceResultsByRaceId = async ({
     const raceResultsResponse = await fetch(
       `${process.env.SERVICE_URL}/api/race-results?${queryString}`,
       {
-        next: { revalidate: 600 },
+        next: { revalidate: 0 },
       },
     );
     if (!raceResultsResponse.ok) {

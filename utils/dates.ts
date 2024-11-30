@@ -1,7 +1,7 @@
 import { endOfYear, format, startOfYear, intervalToDuration } from "date-fns";
 import { es } from "date-fns/locale";
 
-const formatDateToMMDD = (date: Date) => {
+const formatDateToMMDD = (date?: Date) => {
   if (!date) {
     return "";
   }

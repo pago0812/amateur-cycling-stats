@@ -24,7 +24,7 @@ const getEventsByYear = async (params: GetEventsParams) => {
   const eventResponse = await fetch(
     `${process.env.SERVICE_URL}/api/events?${queryString}`,
     {
-      next: { revalidate: 600 },
+      next: { revalidate: 0 },
     },
   );
 
@@ -56,7 +56,7 @@ const getEventWithCategoriesById = async (params: GetEventByIdParams) => {
     const eventResponse = await fetch(
       `${process.env.SERVICE_URL}/api/events/${params.id}?${queryString}`,
       {
-        next: { revalidate: 600 },
+        next: { revalidate: 0 },
       },
     );
     if (!eventResponse.ok) {

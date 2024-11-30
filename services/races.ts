@@ -15,6 +15,12 @@ export const getRaceWithResultsWithFilters = async (
       raceCategory: {
         documentId: params.age,
       },
+      raceCategoryGender: {
+        documentId: params.gender,
+      },
+      raceCategoryLength: {
+        documentId: params.length,
+      },
     },
     populate: {
       raceResults: {
@@ -30,7 +36,7 @@ export const getRaceWithResultsWithFilters = async (
     const raceResponse = await fetch(
       `${process.env.SERVICE_URL}/api/races?${queryString}`,
       {
-        next: { revalidate: 600 },
+        next: { revalidate: 0 },
       },
     );
     if (!raceResponse.ok) {

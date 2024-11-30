@@ -3,6 +3,7 @@ import { Event } from "./event";
 import { RaceResult } from "./race-result";
 import { RaceCategoryGender } from "./race-category-gender";
 import { RaceCategoryLength } from "./race-category-length";
+import { RaceRanking } from "./race-ranking";
 
 export const RACE_MODEL_NAME: string = "Race";
 
@@ -10,11 +11,13 @@ export const RACE_MODEL_NAME: string = "Race";
 export interface Race {
   id: string;
   documentId: string;
-  name?: string;
   description?: string;
+  event?: Event;
+  dateTime: Date;
+  name?: string;
   raceCategory: RaceCategory;
-  raceCategorygGender: RaceCategoryGender;
+  raceCategoryGender: RaceCategoryGender;
   raceCategoryLength: RaceCategoryLength;
-  event: Event;
+  raceRanking: RaceRanking;
   raceResults: RaceResult[];
 }
