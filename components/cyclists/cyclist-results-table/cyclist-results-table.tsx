@@ -1,4 +1,4 @@
-import { RaceResult } from "@models/race-result";
+import { useTranslations } from "next-intl";
 import {
   Link,
   Paper,
@@ -9,17 +9,17 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
+import { RaceRecord } from "@entities/race-result";
 import { formatDateToMMDD } from "@utils/dates";
-import { useTranslations } from "next-intl";
 
 interface CylistResultsTableProps {
-  raceResults: RaceResult[];
+  raceRecords: RaceRecord[];
 }
 
-const CyclistResultsTable = ({ raceResults }: CylistResultsTableProps) => {
+const CyclistResultsTable = ({ raceRecords }: CylistResultsTableProps) => {
   const t = useTranslations();
 
-  const getEventUrl = (result: RaceResult) => {
+  const getEventUrl = (result: RaceRecord) => {
     return `/events/${result?.race?.event?.documentId}?category=${
       result?.race?.raceCategory?.documentId
     }&gender=${result?.race?.raceCategoryGender?.documentId}&length=${
@@ -42,7 +42,7 @@ const CyclistResultsTable = ({ raceResults }: CylistResultsTableProps) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {raceResults.map((result) => (
+          {raceRecords.map((result) => (
             <TableRow
               key={result.documentId}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}

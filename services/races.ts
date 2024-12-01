@@ -1,5 +1,5 @@
-import { Race } from "@models/race";
 import qs from "qs";
+import { Race } from "@entities/race";
 
 interface GetRaceWithFiltersParams {
   age: string;
@@ -23,7 +23,7 @@ export const getRaceWithResultsWithFilters = async (
       },
     },
     populate: {
-      raceResults: {
+      raceRecords: {
         sort: "place",
         populate: ["cyclist", "rankingPoint"],
       },

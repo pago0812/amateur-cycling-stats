@@ -1,4 +1,5 @@
-import { RaceResult } from "./race-result";
+import { CyclistGender } from "@collections/cyclist-gender";
+import { RaceRecord } from "@entities/race-result";
 
 export interface Cyclist {
   id: string;
@@ -7,10 +8,5 @@ export interface Cyclist {
   lastName: string;
   bornYear: number;
   gender: CyclistGender;
-  raceResults?: RaceResult[];
-}
-
-enum CyclistGender {
-  F = "F",
-  M = "M",
+  raceRecords?: RaceRecord[];
 }

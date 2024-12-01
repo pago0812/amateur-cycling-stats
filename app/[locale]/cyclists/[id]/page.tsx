@@ -1,5 +1,5 @@
-import { CyclistResultsTable } from "@components/cyclists/cyclist-results-table/cyclist-results-table";
 import { Box, Typography } from "@mui/material";
+import { CyclistResultsTable } from "@components/cyclists/cyclist-results-table/cyclist-results-table";
 import { getCyclistWithResultsById } from "@services/cyclists";
 
 interface CyclistDetailPage {
@@ -14,7 +14,7 @@ const CyclistDetailPage = async ({ params }: CyclistDetailPage) => {
       <Typography sx={{ mb: "32px" }} component="h2" variant="h5">
         {cyclist.name} {cyclist.lastName}
       </Typography>
-      <CyclistResultsTable raceResults={cyclist.raceResults || []} />
+      <CyclistResultsTable raceRecords={cyclist.raceRecords || []} />
     </Box>
   );
 };

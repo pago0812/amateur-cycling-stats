@@ -1,7 +1,7 @@
-import { RaceCategory } from "./race-category";
-import { RaceCategoryGender } from "./race-category-gender";
-import { RaceCategoryLength } from "./race-category-length";
-import { Race } from "./race";
+import { RaceCategory } from "@collections/race-category";
+import { RaceCategoryGender } from "@collections//race-category-gender";
+import { RaceCategoryLength } from "@collections//race-category-length";
+import { Race } from "@entities/race";
 
 const EVENT_MODEL_NAME: string = "Event";
 

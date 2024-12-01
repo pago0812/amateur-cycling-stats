@@ -1,4 +1,4 @@
-import { Event } from "@models/event";
+import { useTranslations } from "next-intl";
 import {
   Link,
   Paper,
@@ -9,8 +9,8 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
+import { Event } from "@entities/event";
 import { formatDateToMMDD } from "@utils/dates";
-import { useTranslations } from "next-intl";
 
 interface EventsTableProps {
   events: Event[];

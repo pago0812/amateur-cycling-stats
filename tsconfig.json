@@ -24,9 +24,16 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@*": [
-        "./*"
-      ]
+      "@entities/*": [
+        "./types/entities/*"
+      ],
+      "@collections/*": [
+        "./types/collections/*"
+      ],
+      "@utils/*": [ "./utils/*"],
+      "@services/*": [ "./services/*"],
+      "@components/*": [ "./components/*"],
+      "@styles/*": [ "./styles/*"],
     }
   },
   "include": [

@@ -1,4 +1,4 @@
-import { RaceResult } from "@models/race-result";
+import { useTranslations } from "next-intl";
 import {
   Link,
   Paper,
@@ -9,13 +9,13 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import { useTranslations } from "next-intl";
+import { RaceRecord } from "@entities/race-result";
 
 interface ResultsTableProps {
-  raceResults: RaceResult[];
+  raceRecords: RaceRecord[];
 }
 
-const ResultsTable = ({ raceResults }: ResultsTableProps) => {
+const ResultsTable = ({ raceRecords }: ResultsTableProps) => {
   const t = useTranslations();
 
   return (
@@ -30,7 +30,7 @@ const ResultsTable = ({ raceResults }: ResultsTableProps) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {raceResults.map((result) => (
+          {raceRecords.map((result) => (
             <TableRow
               key={result.documentId}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}

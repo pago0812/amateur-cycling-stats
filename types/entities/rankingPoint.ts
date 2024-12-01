@@ -1,4 +1,4 @@
-import { RaceRanking } from "./race-ranking";
+import { RaceRanking } from "@collections/race-ranking";
 
 export interface RankingPoint {
   points: number;

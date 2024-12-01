@@ -1,5 +1,5 @@
-import { Event } from "@models/event";
 import qs from "qs";
+import { Event } from "@entities/event";
 
 interface GetEventsParams {
   year?: string;

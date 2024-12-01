@@ -1,5 +1,5 @@
-import { Cyclist } from "@models/cyclist";
 import qs from "qs";
+import { Cyclist } from "@entities/cyclist";
 
 interface GetCyclistWithResultsByIdParams {
   id: string;
@@ -10,7 +10,7 @@ const getCyclistWithResultsById = async (
 ) => {
   const query = {
     populate: {
-      raceResults: {
+      raceRecords: {
         populate: {
           race: {
             populate: [
