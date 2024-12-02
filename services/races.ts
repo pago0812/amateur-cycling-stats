@@ -23,7 +23,7 @@ export const getRaceWithResultsWithFilters = async (
       },
     },
     populate: {
-      raceRecords: {
+      raceResults: {
         sort: "place",
         populate: ["cyclist", "rankingPoint"],
       },

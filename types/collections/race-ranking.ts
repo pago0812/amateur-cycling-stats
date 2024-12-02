@@ -1,4 +1,6 @@
 export interface RaceRanking {
   documentId: string;
-  name: string;
+  name: RaceRankingEnum;
 }
+
+export enum RaceRankingEnum {}

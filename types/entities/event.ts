@@ -3,9 +3,6 @@ import { RaceCategoryGender } from "@collections//race-category-gender";
 import { RaceCategoryLength } from "@collections//race-category-length";
 import { Race } from "@entities/race";
 
-const EVENT_MODEL_NAME: string = "Event";
-
-// Event Schema
 export interface Event {
   id: string;
   documentId: string;

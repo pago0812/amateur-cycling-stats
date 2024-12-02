@@ -9,13 +9,13 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import { RaceRecord } from "@entities/race-result";
+import { RaceResult } from "@entities/race-result";
 
 interface ResultsTableProps {
-  raceRecords: RaceRecord[];
+  raceResults: RaceResult[];
 }
 
-const ResultsTable = ({ raceRecords }: ResultsTableProps) => {
+const ResultsTable = ({ raceResults }: ResultsTableProps) => {
   const t = useTranslations();
 
   return (
@@ -30,7 +30,7 @@ const ResultsTable = ({ raceRecords }: ResultsTableProps) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {raceRecords.map((result) => (
+          {raceResults.map((result) => (
             <TableRow
               key={result.documentId}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}

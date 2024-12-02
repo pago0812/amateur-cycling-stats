@@ -14,7 +14,7 @@ const CyclistDetailPage = async ({ params }: CyclistDetailPage) => {
       <Typography sx={{ mb: "32px" }} component="h2" variant="h5">
         {cyclist.name} {cyclist.lastName}
       </Typography>
-      <CyclistResultsTable raceRecords={cyclist.raceRecords || []} />
+      <CyclistResultsTable raceResults={cyclist.raceResults || []} />
     </Box>
   );
 };

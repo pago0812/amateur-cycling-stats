@@ -74,7 +74,7 @@ const EventDetailPage = async ({ params, searchParams }: EventDetailPage) => {
           options={raceCategoryLengthOptions}
         />
       </Box>
-      <ResultsTable raceRecords={race?.raceRecords || []}></ResultsTable>
+      <ResultsTable raceResults={race?.raceResults || []}></ResultsTable>
     </Box>
   );
 };

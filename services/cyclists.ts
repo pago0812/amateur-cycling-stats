@@ -10,7 +10,7 @@ const getCyclistWithResultsById = async (
 ) => {
   const query = {
     populate: {
-      raceRecords: {
+      raceResults: {
         populate: {
           race: {
             populate: [

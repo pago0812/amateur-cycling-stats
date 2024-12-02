@@ -1,5 +1,5 @@
 import qs from "qs";
-import { RaceRecord } from "@entities/race-result";
+import { RaceResult } from "@entities/race-result";
 
 interface GetRaceResultsByRaceIdParams {
   id: string;
@@ -31,8 +31,8 @@ export const getRaceResultsByRaceId = async ({
       throw raceResultsResponse.statusText;
     }
 
-    const raceRecords: RaceRecord[] = (await raceResultsResponse.json()).data;
-    return raceRecords;
+    const raceResults: RaceResult[] = (await raceResultsResponse.json()).data;
+    return raceResults;
   } catch (e) {
     throw e;
   }
