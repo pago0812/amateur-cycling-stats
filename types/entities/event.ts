@@ -1,7 +1,7 @@
-import { RaceCategory } from "@collections/race-category";
-import { RaceCategoryGender } from "@collections//race-category-gender";
-import { RaceCategoryLength } from "@collections//race-category-length";
-import { Race } from "@entities/race";
+import { RaceCategory } from "@type-collections/race-category";
+import { RaceCategoryGender } from "@type-collections//race-category-gender";
+import { RaceCategoryLength } from "@type-collections//race-category-length";
+import { Race } from "@type-entities/race";
 
 export interface Event {
   id: string;

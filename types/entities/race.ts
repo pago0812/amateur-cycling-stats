@@ -1,9 +1,9 @@
-import { Event } from "@entities/event";
-import { RaceResult } from "@entities/race-result";
-import { RaceCategory } from "@collections/race-category";
-import { RaceCategoryGender } from "@collections/race-category-gender";
-import { RaceCategoryLength } from "@collections/race-category-length";
-import { RaceRanking } from "@collections/race-ranking";
+import { Event } from "@type-entities/event";
+import { RaceResult } from "@type-entities/race-result";
+import { RaceCategory } from "@type-collections/race-category";
+import { RaceCategoryGender } from "@type-collections/race-category-gender";
+import { RaceCategoryLength } from "@type-collections/race-category-length";
+import { RaceRanking } from "@type-collections/race-ranking";
 
 export interface Race {
   id: string;

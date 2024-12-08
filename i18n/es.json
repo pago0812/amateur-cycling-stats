@@ -1,19 +1,32 @@
 {
+  "account": "Cuenta",
+  "alreadyHaveAccount": "Ya tengo cuenta",
   "category": "Categoria",
+  "createAccount": "Crear cuenta",
   "date": "Fecha",
+  "email": "Correo electronico",
+  "enter": "Acceder",
   "event": "Evento",
   "events": "Eventos",
+  "home": "Principal",
   "lastName": "Apellido",
   "length": "Distancia",
+  "login": "Acceso",
   "name": "Nombre",
-  "home": "Principal",
+  "logout": "Salir",
+  "loginTitle": "Accede a tu cuenta",
+  "notHaveAccount": "No tengo cuenta",
+  "password": "Contraseña",
   "place": "Lugar",
+  "points": "Puntos",
   "race": "Carrera",
   "races": "Carreras",
   "ranking": "Clasificaciones",
-  "time": "Tiempo",
+  "signin": "Registro",
+  "signinTitle": "Crea tu cuenta",
   "teams": "Equipos",
-  "points": "Puntos",
+  "time": "Tiempo",
+  "userName": "Usuario",
   "year": "Año",
   "raceCategory": {
     "label": "Categoria",
@@ -56,5 +69,9 @@
     "SHORT": "Corta",
     "SPRINT": "Sprint",
     "UNIQUE": "Unica"
+  },
+  "serverErrors": {
+    "Invalid identifier or password": "El correo o la contraseña que ingresaste, es incorrecta.",
+    "Email or Username are already taken": "El correo o usuario que ingresaste, ya estan registrados."
   }
 }

@@ -1,5 +1,5 @@
 import qs from "qs";
-import { Cyclist } from "@entities/cyclist";
+import { Cyclist } from "@type-entities/cyclist";
 
 interface GetCyclistWithResultsByIdParams {
   id: string;

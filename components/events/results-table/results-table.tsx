@@ -9,7 +9,7 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import { RaceResult } from "@entities/race-result";
+import { RaceResult } from "@type-entities/race-result";
 
 interface ResultsTableProps {
   raceResults: RaceResult[];

@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -24,16 +20,16 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@entities/*": [
-        "./types/entities/*"
-      ],
-      "@collections/*": [
-        "./types/collections/*"
-      ],
-      "@utils/*": [ "./utils/*"],
-      "@services/*": [ "./services/*"],
-      "@components/*": [ "./components/*"],
-      "@styles/*": [ "./styles/*"],
+      "@actions/*": ["./actions/*"],
+      "@components/*": ["./components/*"],
+      "@constants/*": ["./constants/*"],
+      "@services/*": ["./services/*"],
+      "@stores/*": ["./stores/*"],
+      "@styles/*": ["./styles/*"],
+      "@type-collections/*": ["./types/collections/*"],
+      "@type-entities/*": ["./types/entities/*"],
+      "@type-services/*": ["./types/services/*"],
+      "@utils/*": ["./utils/*"],
     }
   },
   "include": [
@@ -43,7 +39,5 @@
     ".next/types/**/*.ts",
     "components/events/results-table"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
