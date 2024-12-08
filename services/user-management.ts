@@ -54,7 +54,9 @@ export const signin = async ({ username, email, password }: SigninRequest) => {
   return await signinResponse.json();
 };
 
-export const getMyself = async ({ jwt }: SessionJWTRequest) => {
+export const getMyself = async ({
+  jwt,
+}: SessionJWTRequest): Promise<UserResponse> => {
   const query = {
     populate: ["role"],
   };

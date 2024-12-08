@@ -1,11 +1,12 @@
 "use client";
 
-import { Box, Button, Link, TextField, Typography } from "@mui/material";
-import { useAlertStore } from "@stores/alert-store";
-import { signinAction } from "actions/user-management";
-import { useTranslations } from "next-intl";
 import { useEffect } from "react";
 import { useFormState } from "react-dom";
+import { useTranslations } from "next-intl";
+//
+import { Box, Button, Link, TextField, Typography } from "@mui/material";
+import { useAlertStore } from "@stores/alert-store";
+import { signinAction } from "@actions/user-management";
 
 export const SigninForm = () => {
   const [state, action] = useFormState(signinAction, undefined);
@@ -38,9 +39,19 @@ export const SigninForm = () => {
             width: "360px",
           }}
         >
-          <TextField name="username" type="text" label={t("userName")} />
-          <TextField name="email" type="email" label={t("email")} />
-          <TextField name="password" type="password" label={t("password")} />
+          <TextField
+            name="username"
+            required
+            type="text"
+            label={t("userName")}
+          />
+          <TextField name="email" required type="email" label={t("email")} />
+          <TextField
+            name="password"
+            required
+            type="password"
+            label={t("password")}
+          />
           <Box
             sx={{
               display: "flex",

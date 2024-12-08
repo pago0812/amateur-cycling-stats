@@ -1,10 +1,12 @@
-import { getMyselfAction } from "@actions/user-management";
-import { Urls } from "@constants/urls";
-import { Box, Button, Link, Typography } from "@mui/material";
+import React from "react";
+import { getTranslations } from "next-intl/server";
+import { Box, Link, Typography } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import { getTranslations } from "next-intl/server";
-import React from "react";
+
+import { getMyselfAction } from "@actions/user-management";
+import { Urls } from "@constants/urls";
+import { Sidenav } from "@components/common/sidenav/sidenav";
 
 const Header = async () => {
   const t = await getTranslations();
@@ -41,6 +43,9 @@ const Header = async () => {
               </Typography>
             </Link>
           )}
+        </Box>
+        <Box sx={{ display: { xs: "flex", sm: "none" } }}>
+          <Sidenav user={user} />
         </Box>
       </Toolbar>
     </AppBar>

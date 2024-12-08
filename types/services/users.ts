@@ -30,5 +30,5 @@ export interface UserSessionResponse {
 
 export interface UserResponse {
   data: User;
-  error: ServerError;
+  error?: ServerError;
 }
