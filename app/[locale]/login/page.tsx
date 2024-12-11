@@ -1,5 +1,5 @@
 import { getMyselfAction } from "@actions/user-management";
-import { LoginForm } from "@components/user-management/login-form";
+import { LoginForm } from "@components/user-management/login-form/login-form";
 import { Urls } from "@constants/urls";
 import { redirect } from "next/navigation";
 

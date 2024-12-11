@@ -27,7 +27,7 @@ const LoginForm = () => {
           flexDirection: "column",
         }}
       >
-        <Typography sx={{ mb: "32px" }} component="h2" variant="h5">
+        <Typography sx={{ mb: "32px" }} component="h2" variant="h3">
           {t("loginTitle")}
         </Typography>
         <form

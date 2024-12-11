@@ -54,9 +54,10 @@ const EventDetailPage = async ({ params, searchParams }: EventDetailPage) => {
 
   return (
     <Box component="section">
-      <Typography sx={{ mb: "32px" }} component="h2" variant="h5">
+      <Typography sx={{ mb: "32px" }} component="h2" variant="h3">
         {event.name}
       </Typography>
+
       <Box sx={{ mb: "16px", display: "flex", gap: "12px" }}>
         <SelectQueryParam
           name="category"

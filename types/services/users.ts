@@ -1,4 +1,4 @@
-import { User } from "@type-entities/users";
+import { User } from "@type-entities/user";
 import { ServerError } from "./errors";
 
 // Requests
@@ -17,6 +17,12 @@ export interface SessionJWTRequest {
   jwt: string;
 }
 
+export interface SetRoleRequest {
+  userId?: string;
+  roleId?: string;
+  jwt: string;
+}
+
 // Responses
 export interface UserSession {
   jwt: string;
@@ -24,11 +30,11 @@ export interface UserSession {
 }
 
 export interface UserSessionResponse {
-  data: UserSession;
+  data?: UserSession;
   error?: ServerError;
 }
 
 export interface UserResponse {
-  data: User;
+  data?: User;
   error?: ServerError;
 }

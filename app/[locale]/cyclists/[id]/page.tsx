@@ -11,7 +11,7 @@ const CyclistDetailPage = async ({ params }: CyclistDetailPage) => {
 
   return (
     <Box component="section">
-      <Typography sx={{ mb: "32px" }} component="h2" variant="h5">
+      <Typography sx={{ mb: "32px" }} component="h2" variant="h3">
         {cyclist.name} {cyclist.lastName}
       </Typography>
       <CyclistResultsTable raceResults={cyclist.raceResults || []} />

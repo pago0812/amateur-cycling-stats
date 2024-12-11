@@ -2,6 +2,7 @@ import qs from "qs";
 import {
   LoginRequest,
   SessionJWTRequest,
+  SetRoleRequest,
   SigninRequest,
   UserResponse,
   UserSessionResponse,
@@ -58,7 +59,7 @@ export const getMyself = async ({
   jwt,
 }: SessionJWTRequest): Promise<UserResponse> => {
   const query = {
-    populate: ["role"],
+    populate: "role",
   };
 
   const queryString = qs.stringify(query);
@@ -76,4 +77,32 @@ export const getMyself = async ({
   }
 
   return await myselfResponse.json();
+};
+
+export const setRoletoUser = async ({
+  roleId,
+  userId,
+  jwt,
+}: SetRoleRequest): Promise<UserResponse> => {
+  const body = {
+    role: roleId,
+  };
+
+  const updateUserResponse = await fetch(
+    `${process.env.SERVICE_URL}/api/users/${userId}`,
+    {
+      method: "PUT",
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${jwt}`,
+      },
+
+      body: JSON.stringify(body),
+    },
+  );
+  if (updateUserResponse.ok) {
+    return { data: await updateUserResponse.json() };
+  }
+
+  return await updateUserResponse.json();
 };

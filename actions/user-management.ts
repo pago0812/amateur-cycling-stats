@@ -1,10 +1,16 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { getMyself, login, signin } from "@services/user-management";
+import {
+  getMyself,
+  login,
+  setRoletoUser,
+  signin,
+} from "@services/user-management";
 import { Urls } from "@constants/urls";
-import { UserSessionResponse } from "@type-services/users";
+import { UserResponse, UserSessionResponse } from "@type-services/users";
 import { getJWT, saveJWT, revokeJWT } from "@utils/session";
+import { getRoles } from "@services/roles";
 
 export const loginAction = async (
   state: UserSessionResponse | undefined,
@@ -53,4 +59,35 @@ export const logoutAction = async () => {
 export const getMyselfAction = async () => {
   const jwtObject = await getJWT();
   return await getMyself(jwtObject);
+};
+
+export const selectRoleAction = async (
+  state: UserResponse | undefined,
+  formData: FormData,
+) => {
+  const roleType = formData.get("roleType")?.toString();
+
+  const jwtObject = await getJWT();
+  const userResponse = await getMyself(jwtObject);
+  if (userResponse.error) {
+    return userResponse;
+  }
+
+  const rolesResponse = await getRoles();
+  if (rolesResponse.error) {
+    return { error: rolesResponse.error } as UserResponse;
+  }
+  const role = rolesResponse.data?.roles.find((r) => r.type === roleType);
+
+  if (!(role && role.documentId)) {
+    return { error: { message: "Role does not exist" } } as UserResponse;
+  }
+
+  const updateRoleResponse = await setRoletoUser({
+    jwt: jwtObject.jwt,
+    userId: userResponse.data?.id,
+    roleId: role?.id,
+  });
+
+  return updateRoleResponse;
 };

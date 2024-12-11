@@ -16,7 +16,7 @@ const EventsPage = async ({ searchParams }: EventsPageProps) => {
 
   return (
     <Box component="section">
-      <Typography sx={{ mb: "32px" }} component="h2" variant="h5">
+      <Typography sx={{ mb: "32px" }} component="h2" variant="h3">
         {t("events")}
       </Typography>
       <Box sx={{ mb: "16px", display: "flex", gap: "16px" }}>

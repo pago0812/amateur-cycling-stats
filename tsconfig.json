@@ -37,7 +37,6 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "components/events/results-table"
   ],
   "exclude": ["node_modules"]
 }
