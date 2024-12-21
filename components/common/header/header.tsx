@@ -13,31 +13,33 @@ const Header = async () => {
   const user = await getMyselfAction();
 
   return (
-    <AppBar position="static" component="nav">
+    <AppBar color="primary" position="static" component="nav">
       <Toolbar sx={{ justifyContent: "space-between" }}>
-        <h1>ACS</h1>
+        <Typography component="h1" variant="h3">
+          ACS
+        </Typography>
         <Box
           component="nav"
           sx={{ display: { xs: "none", sm: "flex" }, gap: "16px" }}
         >
-          <Link href={Urls.HOME} underline="none" color="white">
+          <Link href={Urls.HOME} underline="none" color="primary">
             {t("home")}
           </Link>
-          <Link href={Urls.EVENTS} underline="none" color="white">
+          <Link href={Urls.EVENTS} underline="none">
             {t("events")}
           </Link>
-          <Link href={Urls.TEAMS} underline="none" color="white">
+          <Link href={Urls.TEAMS} underline="none">
             {t("teams")}
           </Link>
           {user.error && (
-            <Link href={Urls.LOGIN} underline="none" color="#fff">
+            <Link href={Urls.LOGIN} underline="none">
               <Typography component={"span"} sx={{ fontWeight: "bold" }}>
                 {t("login")}
               </Typography>
             </Link>
           )}
           {user.data && (
-            <Link href={Urls.PORTAL} underline="none" color="#fff">
+            <Link href={Urls.PORTAL} underline="none">
               <Typography component={"span"} sx={{ fontWeight: "bold" }}>
                 {t("account")}
               </Typography>

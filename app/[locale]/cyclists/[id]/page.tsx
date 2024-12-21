@@ -10,7 +10,13 @@ const CyclistDetailPage = async ({ params }: CyclistDetailPage) => {
   const cyclist = await getCyclistWithResultsById({ id: params.id });
 
   return (
-    <Box component="section">
+    <Box
+      component="section"
+      sx={{
+        paddingX: { xs: "8px", sm: "16px", md: "24px", lg: "32px" },
+        paddingY: { xs: "16px", sm: "24px", md: "32px", lg: "40px" },
+      }}
+    >
       <Typography sx={{ mb: "32px" }} component="h2" variant="h3">
         {cyclist.name} {cyclist.lastName}
       </Typography>

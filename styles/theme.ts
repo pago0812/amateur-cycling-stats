@@ -1,5 +1,9 @@
 "use client";
 
+import { createTheme } from "@mui/material/styles";
+import { common } from "@mui/material/colors";
+import { Roboto } from "next/font/google";
+
 declare module "@mui/material/styles" {
   interface TypographyVariants {
     md: React.CSSProperties;
@@ -18,9 +22,6 @@ declare module "@mui/material/Typography" {
     mdb: true;
   }
 }
-
-import { createTheme } from "@mui/material/styles";
-import { Roboto } from "next/font/google";
 
 const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
@@ -65,10 +66,18 @@ const theme = createTheme({
   },
   components: {
     MuiTypography: {
+      styleOverrides: {},
       defaultProps: {
         variantMapping: {
           md: "span",
           mdb: "span",
+        },
+      },
+    },
+    MuiLink: {
+      styleOverrides: {
+        root: {
+          color: common.white,
         },
       },
     },

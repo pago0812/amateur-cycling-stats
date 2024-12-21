@@ -15,7 +15,13 @@ const EventsPage = async ({ searchParams }: EventsPageProps) => {
   const events = await getEventsByYear({ year: searchParams?.year });
 
   return (
-    <Box component="section">
+    <Box
+      component="section"
+      sx={{
+        paddingX: { xs: "8px", sm: "16px", md: "24px", lg: "32px" },
+        paddingY: { xs: "16px", sm: "24px", md: "32px", lg: "40px" },
+      }}
+    >
       <Typography sx={{ mb: "32px" }} component="h2" variant="h3">
         {t("events")}
       </Typography>

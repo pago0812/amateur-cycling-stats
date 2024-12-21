@@ -47,15 +47,7 @@ const RootLayout = async ({
             <ThemeProvider theme={theme}>
               <CssBaseline />
               <Header />
-              <Box
-                component="section"
-                sx={{
-                  paddingX: { xs: "8px", sm: "16px", md: "24px", lg: "32px" },
-                  paddingY: { xs: "16px", sm: "24px", md: "32px", lg: "40px" },
-                }}
-              >
-                {children}
-              </Box>
+              <Box>{children}</Box>
             </ThemeProvider>
           </NuqsAdapter>
           <GlobalAlert />

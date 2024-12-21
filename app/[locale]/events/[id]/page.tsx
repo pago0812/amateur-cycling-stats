@@ -21,15 +21,15 @@ const EventDetailPage = async ({ params, searchParams }: EventDetailPage) => {
   const race = await getRaceWithResultsWithFilters({
     age:
       searchParams?.category ||
-      event?.supportedRaceCategories?.[0].documentId ||
+      event?.supportedRaceCategories?.[0]?.documentId ||
       "",
     length:
       searchParams?.length ||
-      event?.supportedRaceCategoryLengths?.[0].documentId ||
+      event?.supportedRaceCategoryLengths?.[0]?.documentId ||
       "",
     gender:
       searchParams?.gender ||
-      event?.supportedRaceCategoryGenders?.[0].documentId ||
+      event?.supportedRaceCategoryGenders?.[0]?.documentId ||
       "",
   });
 
@@ -53,7 +53,13 @@ const EventDetailPage = async ({ params, searchParams }: EventDetailPage) => {
   );
 
   return (
-    <Box component="section">
+    <Box
+      component="section"
+      sx={{
+        paddingX: { xs: "8px", sm: "16px", md: "24px", lg: "32px" },
+        paddingY: { xs: "16px", sm: "24px", md: "32px", lg: "40px" },
+      }}
+    >
       <Typography sx={{ mb: "32px" }} component="h2" variant="h3">
         {event.name}
       </Typography>
