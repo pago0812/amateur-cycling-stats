@@ -1,0 +1,47 @@
+import { Onboarding } from "src/components/portal/onboarding/onboarding";
+import { OrganizerNavbar } from "src/components/portal/organizer-navbar/organizer-navbar";
+import { Urls } from "src/constants/urls";
+import { Box, Button, Typography } from "@mui/material";
+import { RoleTypeEnum } from "@type-collections/roles";
+import { getMyselfAction, logoutAction } from "src/actions/user-management";
+import { getTranslations } from "next-intl/server";
+import { redirect } from "next/navigation";
+
+const OrganizerPage = async () => {
+  const t = await getTranslations();
+  const user = await getMyselfAction();
+
+  console.log(user);
+
+  if (user.error) {
+    redirect(Urls.LOGIN);
+  }
+  return (
+    <Box>
+      <OrganizerNavbar />
+      <Box
+        component="section"
+        sx={{
+          paddingX: { xs: "8px", sm: "16px", md: "24px", lg: "32px" },
+          paddingY: { xs: "16px", sm: "24px", md: "32px", lg: "40px" },
+        }}
+      >
+        <Box sx={{ display: "flex", justifyContent: "end" }}>
+          <form action={logoutAction}>
+            <Button type="submit">{t("logout")}</Button>
+          </form>
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          {user.data?.role?.type === RoleTypeEnum.USER && <Onboarding />}
+        </Box>
+      </Box>
+    </Box>
+  );
+};
+
+export default OrganizerPage;
