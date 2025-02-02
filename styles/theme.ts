@@ -1,7 +1,6 @@
 "use client";
 
 import { createTheme } from "@mui/material/styles";
-import { common } from "@mui/material/colors";
 import { Roboto } from "next/font/google";
 
 declare module "@mui/material/styles" {
@@ -71,13 +70,6 @@ const theme = createTheme({
         variantMapping: {
           md: "span",
           mdb: "span",
-        },
-      },
-    },
-    MuiLink: {
-      styleOverrides: {
-        root: {
-          color: common.white,
         },
       },
     },

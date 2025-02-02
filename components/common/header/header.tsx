@@ -22,24 +22,24 @@ const Header = async () => {
           component="nav"
           sx={{ display: { xs: "none", sm: "flex" }, gap: "16px" }}
         >
-          <Link href={Urls.HOME} underline="none" color="primary">
+          <Link href={Urls.HOME} underline="none" color="white">
             {t("home")}
           </Link>
-          <Link href={Urls.EVENTS} underline="none">
+          <Link href={Urls.EVENTS} underline="none" color="white">
             {t("events")}
           </Link>
-          <Link href={Urls.TEAMS} underline="none">
+          <Link href={Urls.TEAMS} underline="none" color="white">
             {t("teams")}
           </Link>
           {user.error && (
-            <Link href={Urls.LOGIN} underline="none">
+            <Link href={Urls.LOGIN} underline="none" color="white">
               <Typography component={"span"} sx={{ fontWeight: "bold" }}>
                 {t("login")}
               </Typography>
             </Link>
           )}
           {user.data && (
-            <Link href={Urls.PORTAL} underline="none">
+            <Link href={Urls.PORTAL} underline="none" color="white">
               <Typography component={"span"} sx={{ fontWeight: "bold" }}>
                 {t("account")}
               </Typography>

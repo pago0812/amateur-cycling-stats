@@ -11,6 +11,8 @@ const OrganizerPage = async () => {
   const t = await getTranslations();
   const user = await getMyselfAction();
 
+  console.log(user);
+
   if (user.error) {
     redirect(Urls.LOGIN);
   }

@@ -63,7 +63,7 @@ export const SigninForm = () => {
             <Button sx={{ width: "100%" }} variant="contained" type="submit">
               {t("createAccount")}
             </Button>
-            <Link underline="hover" href="/login">
+            <Link color="primary" underline="hover" href="/login">
               {t("alreadyHaveAccount")}
             </Link>
           </Box>

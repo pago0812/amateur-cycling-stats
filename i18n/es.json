@@ -1,5 +1,6 @@
 {
   "account": "Cuenta",
+  "about": "Acerca",
   "alreadyHaveAccount": "Ya tengo cuenta",
   "category": "Categoria",
   "createAccount": "Crear cuenta",
@@ -7,6 +8,7 @@
   "email": "Correo electronico",
   "enter": "Acceder",
   "event": "Evento",
+  "contact": "Contacto",
   "events": "Eventos",
   "home": "Principal",
   "lastName": "Apellido",

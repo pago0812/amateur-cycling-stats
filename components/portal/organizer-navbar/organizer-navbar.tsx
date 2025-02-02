@@ -1,4 +1,4 @@
-import { AppBar, Box, Link, Toolbar, Typography } from "@mui/material";
+import { AppBar, Link, Toolbar } from "@mui/material";
 
 import { useTranslations } from "next-intl";
 
@@ -7,12 +7,16 @@ const OrganizerNavbar = () => {
 
   return (
     <AppBar position="relative" component="nav">
-      <Toolbar>
-        <Link color="primary" href="/home">
+      <Toolbar sx={{ gap: "16px" }}>
+        <Link underline="none" color="white" href="/home">
           {t("home")}
         </Link>
-        <Link href="/about">{t("about")}</Link>
-        <Link href="/contact">{t("contact")}</Link>
+        <Link underline="none" color="white" href="/about">
+          {t("about")}
+        </Link>
+        <Link underline="none" color="white" href="/contact">
+          {t("contact")}
+        </Link>
       </Toolbar>
     </AppBar>
   );

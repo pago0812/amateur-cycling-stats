@@ -60,7 +60,7 @@ const LoginForm = () => {
               <Button sx={{ width: "100%" }} variant="contained" type="submit">
                 {t("enter")}
               </Button>
-              <Link underline="hover" href={Urls.SIGNIN}>
+              <Link color="secondary" underline="hover" href={Urls.SIGNIN}>
                 {t("notHaveAccount")}
               </Link>
             </Box>
