@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
-import { UserResponse } from "@type-services/users-management";
+import { UserResponse } from "@type-services/users";
 import { Urls } from "@constants/urls";
 
 interface SidenavProps {

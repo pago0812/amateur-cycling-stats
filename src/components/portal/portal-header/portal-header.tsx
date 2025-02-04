@@ -2,7 +2,7 @@ import { AppBar, Box, Button, Toolbar } from "@mui/material";
 
 import { logoutAction } from "@actions/users-management";
 import { useTranslations } from "next-intl";
-import { UserResponse } from "@type-services/users-management";
+import { UserResponse } from "@type-services/users";
 import { RoleTypeEnum } from "@type-collections/roles";
 
 interface PortalHeaderProps {
