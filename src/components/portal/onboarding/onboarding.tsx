@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import { useFormState } from "react-dom";
 import { useTranslations } from "next-intl";
 import { Box, Button, Typography } from "@mui/material";
-import { selectRoleAction } from "src/actions/user-management";
+import { updateUserAction } from "@actions/users";
 import { RoleTypeEnum } from "@type-collections/roles";
-import { useAlertStore } from "src/stores/alert-store";
+import { useAlertStore } from "@stores/alert-store";
 import { unseOnboardingStyles } from "./useStyles";
 
 const Onboarding = () => {
@@ -18,7 +18,7 @@ const Onboarding = () => {
   } = unseOnboardingStyles();
   const [roleType, setRoleType] = useState<RoleTypeEnum>(RoleTypeEnum.CYCLIST);
 
-  const [state, action] = useFormState(selectRoleAction, undefined);
+  const [state, action] = useFormState(updateUserAction, undefined);
   const t = useTranslations();
   const { openAlert } = useAlertStore();
 
@@ -30,7 +30,7 @@ const Onboarding = () => {
 
   return (
     <Box sx={onboardingContainerStyle}>
-      <Typography variant="h4">Elige tu perfil</Typography>
+      <Typography variant="h4">{t("chooseProfile")}</Typography>
       <Box sx={onboardingBoxContainerStyle}>
         <Box
           sx={
@@ -43,7 +43,7 @@ const Onboarding = () => {
           }}
         >
           <Typography component="p" variant="mdb">
-            Ciclista
+            {t("cyclist")}
           </Typography>
         </Box>
         <Box
@@ -57,15 +57,17 @@ const Onboarding = () => {
           }}
         >
           <Typography component="p" variant="mdb">
-            Organizador
+            {t("organizer")}
           </Typography>
         </Box>
       </Box>
       <form action={action}>
-        <input name="roleType" value={roleType} type="hidden" />
-        <Button variant="contained" type="submit">
-          Elegir
-        </Button>
+        <Box sx={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+          <input name="roleType" value={roleType} type="hidden" />
+          <Button variant="text" type="submit">
+            {t("choose")}
+          </Button>
+        </Box>
       </form>
     </Box>
   );

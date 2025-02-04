@@ -73,6 +73,15 @@ const theme = createTheme({
         },
       },
     },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          fontSize: "16px",
+          fontWeight: "regular",
+          textTransform: "capitalize",
+        },
+      },
+    },
   },
 });
 

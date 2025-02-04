@@ -1,11 +1,11 @@
-import { getMyselfAction } from "src/actions/user-management";
-import { LoginForm } from "src/components/user-management/login-form/login-form";
-import { Urls } from "src/constants/urls";
 import { Box } from "@mui/material";
 import { redirect } from "next/navigation";
+import { LoginForm } from "@components/user-management/login-form/login-form";
+import { Urls } from "@constants/urls";
+import { getMyself } from "@services/users";
 
 const LoginPage = async () => {
-  const user = await getMyselfAction();
+  const user = await getMyself();
   if (user.data) {
     redirect(Urls.PORTAL);
   }

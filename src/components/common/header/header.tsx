@@ -1,16 +1,18 @@
 import React from "react";
 import { getTranslations } from "next-intl/server";
-import { Box, Link, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-
-import { getMyselfAction } from "src/actions/user-management";
-import { Urls } from "src/constants/urls";
-import { Sidenav } from "src/components/common/sidenav/sidenav";
+// Components
+import { Sidenav } from "@components/common/sidenav/sidenav";
+// Contants
+import { Urls } from "@constants/urls";
+// Services
+import { getMyself } from "@services/users";
 
 const Header = async () => {
   const t = await getTranslations();
-  const user = await getMyselfAction();
+  const user = await getMyself();
 
   return (
     <AppBar color="primary" position="static" component="nav">
@@ -22,28 +24,34 @@ const Header = async () => {
           component="nav"
           sx={{ display: { xs: "none", sm: "flex" }, gap: "16px" }}
         >
-          <Link href={Urls.HOME} underline="none" color="white">
+          <Button href={Urls.HOME} sx={{ color: "white" }}>
             {t("home")}
-          </Link>
-          <Link href={Urls.EVENTS} underline="none" color="white">
+          </Button>
+          <Button href={Urls.EVENTS} sx={{ color: "white" }}>
             {t("events")}
-          </Link>
-          <Link href={Urls.TEAMS} underline="none" color="white">
+          </Button>
+          <Button href={Urls.TEAMS} sx={{ color: "white" }}>
             {t("teams")}
-          </Link>
+          </Button>
           {user.error && (
-            <Link href={Urls.LOGIN} underline="none" color="white">
-              <Typography component={"span"} sx={{ fontWeight: "bold" }}>
+            <Button href={Urls.LOGIN}>
+              <Typography
+                component={"span"}
+                sx={{ fontWeight: "bold", color: "white" }}
+              >
                 {t("login")}
               </Typography>
-            </Link>
+            </Button>
           )}
           {user.data && (
-            <Link href={Urls.PORTAL} underline="none" color="white">
-              <Typography component={"span"} sx={{ fontWeight: "bold" }}>
+            <Button href={Urls.PORTAL}>
+              <Typography
+                component={"span"}
+                sx={{ fontWeight: "bold", color: "white" }}
+              >
                 {t("account")}
               </Typography>
-            </Link>
+            </Button>
           )}
         </Box>
         <Box sx={{ display: { xs: "flex", sm: "none" } }}>

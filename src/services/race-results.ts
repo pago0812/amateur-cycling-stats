@@ -1,5 +1,5 @@
 import qs from "qs";
-import { RaceResult } from "@type-entities/race-result";
+import { RaceResult } from "@type-entities/race-results";
 
 interface GetRaceResultsByRaceIdParams {
   id: string;

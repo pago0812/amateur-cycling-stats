@@ -1,5 +1,5 @@
 import qs from "qs";
-import { Event } from "@type-entities/event";
+import { Event } from "@type-entities/events";
 
 interface GetEventsParams {
   year?: string;

@@ -1,4 +1,4 @@
-import { Role } from "@type-entities/role";
+import { Role } from "@type-entities/roles";
 import { ServerError } from "./errors";
 
 // Responses

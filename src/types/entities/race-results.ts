@@ -1,6 +1,6 @@
-import { Cyclist } from "@type-entities/cyclist";
-import { Race } from "@type-entities/race";
-import { RankingPoint } from "@type-entities/rankingPoint";
+import { Cyclist } from "@type-entities/cyclists";
+import { Race } from "@type-entities/races";
+import { RankingPoint } from "@type-entities/rankingPoints";
 
 export interface RaceResult {
   id: string;

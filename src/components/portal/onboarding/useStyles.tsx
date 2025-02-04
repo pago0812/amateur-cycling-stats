@@ -25,11 +25,13 @@ const unseOnboardingStyles = () => {
     padding: "16px",
     borderRadius: "16px",
     cursor: "pointer",
+    textAlign: "center",
   };
 
   const selectedBoxStyle: SxProps = {
     ...boxStyle,
-    border: `3px solid ${theme.palette.primary.main}`,
+    background: theme.palette.primary.main,
+    color: "white",
   };
 
   const uselectedBoxStyle: SxProps = {

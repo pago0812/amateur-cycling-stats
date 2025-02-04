@@ -1,24 +1,25 @@
-import { Onboarding } from "src/components/portal/onboarding/onboarding";
-import { OrganizerNavbar } from "src/components/portal/organizer-navbar/organizer-navbar";
-import { Urls } from "src/constants/urls";
-import { Box, Button, Typography } from "@mui/material";
-import { RoleTypeEnum } from "@type-collections/roles";
-import { getMyselfAction, logoutAction } from "src/actions/user-management";
 import { getTranslations } from "next-intl/server";
 import { redirect } from "next/navigation";
+import { Box } from "@mui/material";
+// Components
+import { Onboarding } from "@components/portal/onboarding/onboarding";
+import { PortalHeader } from "@components/portal/portal-header/portal-header";
+// Constants
+import { Urls } from "@constants/urls";
+import { RoleTypeEnum } from "@type-collections/roles";
+// Services
+import { getMyself } from "@services/users";
 
 const OrganizerPage = async () => {
   const t = await getTranslations();
-  const user = await getMyselfAction();
-
-  console.log(user);
+  const user = await getMyself();
 
   if (user.error) {
     redirect(Urls.LOGIN);
   }
   return (
     <Box>
-      <OrganizerNavbar />
+      <PortalHeader user={user} />
       <Box
         component="section"
         sx={{
@@ -26,18 +27,13 @@ const OrganizerPage = async () => {
           paddingY: { xs: "16px", sm: "24px", md: "32px", lg: "40px" },
         }}
       >
-        <Box sx={{ display: "flex", justifyContent: "end" }}>
-          <form action={logoutAction}>
-            <Button type="submit">{t("logout")}</Button>
-          </form>
-        </Box>
         <Box
           sx={{
             display: "flex",
             flexDirection: "column",
           }}
         >
-          {user.data?.role?.type === RoleTypeEnum.USER && <Onboarding />}
+          {user.data?.role?.type === RoleTypeEnum.NEW_USER && <Onboarding />}
         </Box>
       </Box>
     </Box>

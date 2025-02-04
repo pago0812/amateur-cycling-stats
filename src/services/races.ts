@@ -1,5 +1,5 @@
 import qs from "qs";
-import { Race } from "@type-entities/race";
+import { Race } from "@type-entities/races";
 
 interface GetRaceWithFiltersParams {
   age: string;

@@ -1,11 +1,14 @@
-import { redirect } from "next/navigation";
-import { getMyselfAction } from "src/actions/user-management";
-import { SigninForm } from "src/components/user-management/signin-form/signin-form";
-import { Urls } from "src/constants/urls";
 import { Box } from "@mui/material";
+import { redirect } from "next/navigation";
+// Components
+import { SigninForm } from "@components/user-management/signin-form/signin-form";
+// Constants
+import { Urls } from "@constants/urls";
+// Services
+import { getMyself } from "@services/users";
 
 const SigninPage = async () => {
-  const user = await getMyselfAction();
+  const user = await getMyself();
   if (user.data) {
     redirect(Urls.PORTAL);
   }

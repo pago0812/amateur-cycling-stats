@@ -1,5 +1,5 @@
 import qs from "qs";
-import { Cyclist } from "@type-entities/cyclist";
+import { Cyclist } from "@type-entities/cyclists";
 
 interface GetCyclistWithResultsByIdParams {
   id: string;
@@ -49,4 +49,23 @@ const getCyclistWithResultsById = async (
   }
 };
 
-export { getCyclistWithResultsById };
+const createCyclist = async (cyclist: Cyclist) => {
+  const createCyclistResponse = await fetch(
+    `${process.env.SERVICE_URL}/api/cyclists`,
+    {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(cyclist),
+    },
+  );
+
+  if (!createCyclistResponse.ok) {
+    throw createCyclistResponse.statusText;
+  }
+
+  return createCyclistResponse.json();
+};
+
+export { getCyclistWithResultsById, createCyclist };

@@ -9,7 +9,7 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import { Event } from "@type-entities/event";
+import { Event } from "@type-entities/events";
 import { formatDateToMMDD } from "src/utils/dates";
 
 interface EventsTableProps {

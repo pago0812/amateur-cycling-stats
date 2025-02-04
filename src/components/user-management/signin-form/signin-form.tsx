@@ -3,10 +3,11 @@
 import { useEffect } from "react";
 import { useFormState } from "react-dom";
 import { useTranslations } from "next-intl";
-//
 import { Box, Button, Link, TextField, Typography } from "@mui/material";
-import { useAlertStore } from "src/stores/alert-store";
-import { signinAction } from "src/actions/user-management";
+// Stores
+import { useAlertStore } from "@stores/alert-store";
+// Actions
+import { signinAction } from "@actions/users-management";
 
 export const SigninForm = () => {
   const [state, action] = useFormState(signinAction, undefined);

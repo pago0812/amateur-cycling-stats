@@ -1,5 +1,5 @@
 import { CyclistGender } from "@type-collections/cyclist-gender";
-import { RaceResult } from "@type-entities/race-result";
+import { RaceResult } from "@type-entities/race-results";
 
 export interface Cyclist {
   id: string;

@@ -4,9 +4,9 @@ import { useEffect } from "react";
 import { useFormState } from "react-dom";
 import { useTranslations } from "next-intl";
 import { Box, Button, Link, TextField, Typography } from "@mui/material";
-import { loginAction } from "src/actions/user-management";
-import { useAlertStore } from "src/stores/alert-store";
-import { Urls } from "src/constants/urls";
+import { loginAction } from "@actions/users-management";
+import { useAlertStore } from "@stores/alert-store";
+import { Urls } from "@constants/urls";
 
 const LoginForm = () => {
   const [state, action] = useFormState(loginAction, undefined);
@@ -60,7 +60,7 @@ const LoginForm = () => {
               <Button sx={{ width: "100%" }} variant="contained" type="submit">
                 {t("enter")}
               </Button>
-              <Link color="secondary" underline="hover" href={Urls.SIGNIN}>
+              <Link color="primary" underline="hover" href={Urls.SIGNIN}>
                 {t("notHaveAccount")}
               </Link>
             </Box>

@@ -9,7 +9,7 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import { RaceResult } from "@type-entities/race-result";
+import { RaceResult } from "@type-entities/race-results";
 import { formatDateToMMDD } from "src/utils/dates";
 
 interface CylistResultsTableProps {

@@ -2,12 +2,18 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { Box, Drawer, IconButton, Typography, useTheme } from "@mui/material";
+import {
+  Box,
+  Link,
+  Drawer,
+  IconButton,
+  Typography,
+  useTheme,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Link } from "@i18n/routing";
 
-import { UserResponse } from "@type-services/users";
-import { Urls } from "src/constants/urls";
+import { UserResponse } from "@type-services/users-management";
+import { Urls } from "@constants/urls";
 
 interface SidenavProps {
   user: UserResponse;
@@ -41,24 +47,24 @@ const Sidenav = ({ user }: SidenavProps) => {
             padding: "40px",
           }}
         >
-          <Link href={Urls.HOME} color="white">
+          <Link href={Urls.HOME} underline="none" color="white">
             {t("home")}
           </Link>
-          <Link href={Urls.EVENTS} color="white">
+          <Link href={Urls.EVENTS} underline="none" color="white">
             {t("events")}
           </Link>
-          <Link href={Urls.TEAMS} color="white">
+          <Link href={Urls.TEAMS} underline="none" color="white">
             {t("teams")}
           </Link>
           {user.error && (
-            <Link href={Urls.LOGIN} color="#fff">
+            <Link href={Urls.LOGIN} underline="none" color="#fff">
               <Typography component={"span"} sx={{ fontWeight: "bold" }}>
                 {t("login")}
               </Typography>
             </Link>
           )}
           {user.data && (
-            <Link href={Urls.PORTAL} color="#fff">
+            <Link href={Urls.PORTAL} underline="none" color="#fff">
               <Typography component={"span"} sx={{ fontWeight: "bold" }}>
                 {t("account")}
               </Typography>
